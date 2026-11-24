@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Siti Nur Azrina Binti Aziman, Computer Science undergraduate specialising in Mobile Computing.">
+<title>Azrina Aziman | Developer Portfolio</title>
+<style>
+:root{
+  --bg:#09070d;--panel:#15101b;--panel2:#1d1423;--pink:#ff3cac;
+  --hot:#ff168f;--soft:#ff9bd2;--text:#f8edf5;--muted:#bbaab8;
+  --line:rgba(255,60,172,.24);--glow:0 0 22px rgba(255,60,172,.24);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 5%,rgba(255,22,143,.13),transparent 34%),var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(9,7,13,.86);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:.08em;color:var(--soft);font-size:1.1rem}
+.logo span{color:var(--pink)}
+.navlinks{display:flex;gap:25px;font-size:.9rem;color:var(--muted)}
+.navlinks a:hover{color:var(--pink)}
+.menu{display:none;background:none;border:1px solid var(--line);color:white;border-radius:9px;padding:7px 11px}
+.hero{min-height:650px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:50px;padding:80px 0}
+.eyebrow{color:var(--soft);text-transform:uppercase;letter-spacing:.2em;font-size:.76rem;font-weight:700}
+h1{font-size:clamp(2.8rem,6vw,5.5rem);line-height:1.04;letter-spacing:-.055em;margin:16px 0}
+h1 span,.pink{color:var(--pink);text-shadow:0 0 24px rgba(255,60,172,.35)}
+.hero p{color:var(--muted);max-width:620px;font-size:1.08rem}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:10px;font-weight:700;border:1px solid var(--pink);transition:.2s}
+.btn.primary{background:var(--pink);color:#160812;box-shadow:var(--glow)}
+.btn.secondary{color:var(--soft);background:transparent}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 28px rgba(255,60,172,.35)}
+.hero-card{position:relative;background:linear-gradient(145deg,#241529,#100c15);border:1px solid var(--line);border-radius:26px;padding:34px;box-shadow:var(--glow);overflow:hidden}
+.hero-card:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;background:var(--pink);filter:blur(100px);opacity:.18;right:-50px;top:-60px}
+.profile-photo{width:142px;height:166px;object-fit:cover;object-position:center 28%;border-radius:22px;border:2px solid var(--pink);box-shadow:0 0 35px rgba(255,60,172,.38);margin-bottom:25px;display:block}
+.hero-card h2{margin:0 0 5px;font-size:1.45rem}
+.hero-card .role{color:var(--soft);font-size:.92rem}
+.quickfacts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}
+.fact{background:rgba(255,255,255,.035);border:1px solid var(--line);padding:13px;border-radius:12px}
+.fact strong{display:block;color:var(--pink);font-size:1.25rem}
+.fact small{color:var(--muted)}
+section{padding:82px 0;scroll-margin-top:72px}
+.section-head{margin-bottom:34px}
+.section-head .eyebrow{margin-bottom:8px}
+h2.section-title{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:0;letter-spacing:-.035em}
+.section-desc{color:var(--muted);max-width:700px;margin:14px 0 0}
+.panel{background:linear-gradient(145deg,rgba(29,20,35,.95),rgba(17,12,22,.95));border:1px solid var(--line);border-radius:18px;padding:26px}
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.about-grid p{color:var(--muted);margin-top:0}
+.highlight{color:var(--soft);font-weight:700}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,60,172,.045)}
+.stat strong{display:block;font-size:1.6rem;color:var(--pink)}
+.stat span{font-size:.82rem;color:var(--muted)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-card h3,.project-card h3{margin:0 0 15px}
+.skill-card h3{color:var(--soft);font-size:1.05rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.82rem;color:#f6d9e9;background:rgba(255,60,172,.09);border:1px solid rgba(255,60,172,.25);padding:6px 10px;border-radius:999px}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project-card{position:relative;overflow:hidden;transition:.25s}
+.project-card:hover{transform:translateY(-5px);border-color:rgba(255,60,172,.65);box-shadow:var(--glow)}
+.project-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.project-icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(255,60,172,.12);color:var(--pink);font-size:1.3rem;border:1px solid var(--line)}
+.project-type{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--soft)}
+.project-card p{color:var(--muted);margin:0 0 17px}
+.project-card ul{padding-left:19px;color:var(--muted);margin:0 0 18px}
+.project-card li{margin:6px 0}
+.project-card .tags{margin-top:auto}
+.timeline{display:grid;gap:16px}
+.timeline-item{display:grid;grid-template-columns:190px 1fr;gap:24px}
+.timeline-date{color:var(--pink);font-weight:700}
+.timeline-item h3{margin:0 0 4px}
+.timeline-item .sub{color:var(--soft);font-size:.9rem;margin-bottom:9px}
+.timeline-item p{color:var(--muted);margin:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.info-list{padding-left:18px;color:var(--muted);margin-bottom:0}
+.info-list li{margin:9px 0}
+.contact{display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center}
+.contact p{color:var(--muted);max-width:620px}
+.contact-links{display:flex;gap:10px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.85rem}
+footer .container{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:800px){
+ .hero{grid-template-columns:1fr;min-height:auto;padding:65px 0}
+ .hero-card{max-width:500px}
+ .skills-grid{grid-template-columns:1fr 1fr}
+ .about-grid{grid-template-columns:1fr}
+ .contact{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ .navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:#100b14;padding:20px 5%;border-bottom:1px solid var(--line);flex-direction:column;gap:14px}
+ .navlinks.open{display:flex}.menu{display:block}
+ .skills-grid,.project-grid,.two-col{grid-template-columns:1fr}
+ .timeline-item{grid-template-columns:1fr;gap:4px}
+ section{padding:62px 0}
+ .hero-card{padding:25px}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a class="logo" href="#home">AZ<span>.</span></a>
+    <button class="menu" aria-label="Toggle navigation" onclick="document.querySelector('.navlinks').classList.toggle('open')">Menu ☰</button>
+    <div class="navlinks">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="container hero" id="home">
+  <div>
+    <div class="eyebrow">Computer Science · Mobile Computing</div>
+    <h1>Hi, I'm<br><span>Azrina Aziman.</span></h1>
+    <p>A Computer Science undergraduate interested in software and mobile application development. I enjoy turning ideas into practical digital experiences through problem-solving, thoughtful design and continuous learning.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">Explore my work ↗</a>
+      <a class="btn secondary" href="mailto:azrinaaziman9@gmail.com">Get in touch</a>
+    </div>
+  </div>
+  <aside class="hero-card">
+    <img class="profile-photo" src="azrina_profile.jpeg" alt="Profile photo of Siti Nur Azrina Binti Aziman">
+    <h2>Siti Nur Azrina<br>Binti Aziman</h2>
+    <div class="role">Aspiring Junior Developer</div>
+    <div class="quickfacts">
+      <div class="fact"><strong>3.38</strong><small>Current CGPA · UMT</small></div>
+      <div class="fact"><strong>3.92</strong><small>Diploma CGPA</small></div>
+      <div class="fact"><strong>2028</strong><small>Expected graduation</small></div>
+      <div class="fact"><strong>4+</strong><small>Featured projects</small></div>
+    </div>
+  </aside>
+</section>
+
+<section id="about">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">01 / About me</div><h2 class="section-title">Curious mind. <span class="pink">Creative problem-solver.</span></h2></div>
+  <div class="about-grid">
+   <div class="panel">
+    <p>I am currently pursuing a <span class="highlight">Bachelor of Science in Computer Science and Mathematics (Mobile Computing) with Honours</span> at Universiti Malaysia Terengganu. My academic experience includes projects involving web applications, mobile technologies, database management and interactive user experiences.</p>
+    <p>Before my degree, I completed a Diploma in Information Technology and Communication (Digital Technology) at Politeknik Seberang Perai. I also gained workplace experience in quality control and retail operations, which strengthened my attention to detail, teamwork and communication.</p>
+    <p>I am eager to keep learning, contribute to meaningful development projects and grow as a junior developer.</p>
+   </div>
+   <div class="stats">
+    <div class="stat"><strong>UMT</strong><span>Current university</span></div>
+    <div class="stat"><strong>IT</strong><span>Diploma background</span></div>
+    <div class="stat"><strong>Mobile</strong><span>Area of study</span></div>
+    <div class="stat"><strong>Team</strong><span>Collaborative project experience</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="skills">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">02 / Technical toolkit</div><h2 class="section-title">Skills & technologies</h2><p class="section-desc">Technologies and tools listed in my academic and technical background.</p></div>
+  <div class="skills-grid">
+   <div class="panel skill-card"><h3>Programming languages</h3><div class="tags"><span class="tag">Java</span><span class="tag">Dart</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div></div>
+   <div class="panel skill-card"><h3>Mobile & game</h3><div class="tags"><span class="tag">Flutter</span><span class="tag">Huawei Mobile Services</span><span class="tag">Godot 4</span></div></div>
+   <div class="panel skill-card"><h3>Web & backend</h3><div class="tags"><span class="tag">Java Servlets</span><span class="tag">JSP</span><span class="tag">MySQL</span><span class="tag">JDBC</span><span class="tag">JSON APIs</span><span class="tag">HTML/CSS/PHP</span><span class="tag">Bootstrap</span><span class="tag">IndexedDB</span></div></div>
+   <div class="panel skill-card"><h3>Tools</h3><div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Apache Tomcat</span><span class="tag">CODEX</span></div></div>
+   <div class="panel skill-card"><h3>Professional qualities</h3><div class="tags"><span class="tag">Problem-solving</span><span class="tag">Attention to detail</span><span class="tag">Teamwork</span><span class="tag">Adaptability</span></div></div>
+   <div class="panel skill-card"><h3>Languages</h3><div class="tags"><span class="tag">Malay · Fluent</span><span class="tag">English · Basic</span><span class="tag">Mandarin · Basic</span></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="projects">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">03 / Selected work</div><h2 class="section-title">Projects I've worked on</h2><p class="section-desc">A selection of academic and group projects that reflect my interests in application development, web technologies and user-focused solutions.</p></div>
+  <div class="project-grid">
+   <article class="panel project-card">
+    <div class="project-top"><div class="project-icon">✦</div><span class="project-type">Individual project</span></div>
+    <h3>EnergiQ</h3><p class="pink">Energy-Based Academic Task Manager</p>
+    <p>An academic task management application that matches university assignments with a student's current energy level instead of relying only on fixed schedules.</p>
+    <ul><li>Supports Low, Normal and High Focus energy levels.</li><li>Includes task creation, viewing, updating and deletion (CRUD).</li><li>Allows students to track completion and filter tasks by energy level.</li></ul>
+    <div class="tags"><span class="tag">Task management</span><span class="tag">CRUD</span><span class="tag">Individual</span></div>
+   </article>
+   <article class="panel project-card">
+    <div class="project-top"><div class="project-icon">◎</div><span class="project-type">Group project</span></div>
+    <h3>AirCare</h3><p class="pink">Progressive Web Application</p>
+    <p>A PWA concept focused on helping users explore air-quality information and report local pollution concerns.</p>
+    <ul><li>Displays live air-quality metrics using external APIs.</li><li>Features interactive pollution maps and visual dashboards.</li><li>Includes user login, nearby-facility searches and community reporting.</li></ul>
+    <div class="tags"><span class="tag">PWA</span><span class="tag">External APIs</span><span class="tag">Mapping</span></div>
+   </article>
+   <article class="panel project-card">
+    <div class="project-top"><div class="project-icon">⌘</div><span class="project-type">Group project</span></div>
+    <h3>Asian Odyssey</h3><p class="pink">Cultural Travel Website</p>
+    <p>A modular cultural web platform showcasing the heritage of Malaysia, Japan, Korea and Thailand.</p>
+    <ul><li>Highlights cuisine, festivals, clothing and architecture.</li><li>Designed user-friendly sitemaps and wireframes.</li><li>Planned slideshows and video features for intuitive navigation.</li></ul>
+    <div class="tags"><span class="tag">Web design</span><span class="tag">UI/UX</span><span class="tag">Culture</span></div>
+   </article>
+   <article class="panel project-card">
+    <div class="project-top"><div class="project-icon">♡</div><span class="project-type">Group project</span></div>
+    <h3>SweetBite Cookies</h3><p class="pink">E-commerce Web Application</p>
+    <p>An online cookie-ordering website designed to provide customers with a simple browsing and ordering experience.</p>
+    <ul><li>Customers can select cookie types, quantities and payment options.</li><li>Seven-page structure: Home, About, Menu, Deals, Order, Gallery and Contact.</li><li>Includes promotional slideshows and a location map.</li></ul>
+    <div class="tags"><span class="tag">E-commerce</span><span class="tag">Web application</span><span class="tag">UI</span></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="experience">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">04 / Beyond the classroom</div><h2 class="section-title">Experience & leadership</h2></div>
+  <div class="timeline">
+   <div class="panel timeline-item"><div class="timeline-date">Work experience</div><div><h3>Quality Technician</h3><div class="sub">NationGate Solution (M) Sdn. Bhd.</div><p>Inspected and categorized accepted and rejected products, collaborated in team-based production tasks, and delivered presentations to large audiences.</p></div></div>
+   <div class="panel timeline-item"><div class="timeline-date">Work experience</div><div><h3>Retail Associate</h3><div class="sub">MR.DIY Langkawi Fair</div><p>Assisted customers with product enquiries, maintained and restocked product displays, and processed customer payments using the POS system.</p></div></div>
+   <div class="panel timeline-item"><div class="timeline-date">2026</div><div><h3>Project Lead · 5th UXHMAC × Huawei GameCenter Mobile App Competition</h3><div class="sub">Mobile game competition</div><p>Co-developed a Malaysian folklore-inspired multiplayer social-deduction game featuring three modes, three maps and twelve shared tasks. The project included server-validated game state and integrations with HMS Account Kit, Scan Kit and ML Kit translation (English, Malay, Chinese and Tamil).</p></div></div>
+   <div class="panel timeline-item"><div class="timeline-date">2022</div><div><h3>Head of Entrepreneurship Exco</h3><div class="sub">Department of Information & Communication Technology</div><p>Held a student leadership role in the department's entrepreneurship exco.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="education">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">05 / Academic background</div><h2 class="section-title">Education & development</h2></div>
+  <div class="two-col">
+   <div class="panel"><div class="project-type">Expected graduation · 2028</div><h3>Bachelor of Science in Computer Science & Mathematics (Mobile Computing) with Honours</h3><p class="pink">Universiti Malaysia Terengganu</p><p style="color:var(--muted)">Current CGPA: 3.38</p></div>
+   <div class="panel"><div class="project-type">2021 – 2024</div><h3>Diploma in Information Technology & Communication (Digital Technology)</h3><p class="pink">Politeknik Seberang Perai</p><p style="color:var(--muted)">CGPA: 3.92</p></div>
+  </div>
+  <div class="two-col" style="margin-top:18px">
+   <div class="panel"><h3>Certifications & training</h3><ul class="info-list"><li>Prototype Development Workshop (Figma, PHP & MySQL) · 9–11 September 2022</li><li>Advance ESD Training · 20 October 2023</li></ul></div>
+   <div class="panel"><h3>Additional involvement</h3><ul class="info-list"><li>Participant, Team Building, NationGate Solution (M) Sdn. Bhd. · 5 August 2023</li><li>Knowledge of Electrostatic Discharge (ESD) products</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="panel contact">
+   <div><div class="eyebrow">06 / Let's connect</div><h2 class="section-title">Have a project in mind?</h2><p>I'm open to learning opportunities, collaboration and entry-level junior developer opportunities. Feel free to reach out.</p><div class="contact-links"><a class="btn primary" href="mailto:azrinaaziman9@gmail.com">Email me ↗</a><a class="btn secondary" href="https://github.com/AzrinaAziman" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+   <div><div class="pink">CONTACT DETAILS</div><p>azrinaaziman9@gmail.com<br>+60 19-342 7260<br>Langkawi, Kedah, Malaysia</p><p style="font-size:.8rem">LinkedIn:<a href="https://www.linkedin.com/in/azrina-aziman" target="_blank" rel="noopener">www.linkedin.com/in/azrina-aziman</a></p></div>
+  </div>
+ </div>
+</section>
+</main>
+<footer><div class="container"><span>© 2026 Siti Nur Azrina Binti Aziman</span><span>Designed with curiosity & a neon-pink touch ✦</span></div></footer>
+</body>
+</html>
